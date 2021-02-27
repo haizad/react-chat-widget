@@ -1,24 +1,30 @@
 @import 'animation';
 @import 'common';
 
-.rcw.widget-container {
-  height: auto;
-  width: auto;
-  .conversation-container {
-    width: 370px;
-    margin-bottom: 10px;
+.rcw-widget-container {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px 20px 0;
+  max-width: 370px;
+  position: fixed;
+  right: 0;
+  width: 90vw;
+  z-index: 9999;
+}
+
+.rcw-full-screen {
+  @include widget-container-fs;
+}
+
+@media only screen and (max-width: 800px) {
+  .rcw-widget-container {
+    position: absolute;
+    top: 100px;
   }
-  .launcher {
-    margin-top: 0;
-  }
-  @media screen and (max-width: 800px) {
-    height: auto;
-    width: auto;
-    .conversation-container {
-      height: 100vh;
-      width: 100vw;
-      margin-bottom: 0;
-    }
+
+  .rcw-conversation-container.active{
+      height: calc(100vh - 100px);
   }
 }
 
