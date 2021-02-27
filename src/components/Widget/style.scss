@@ -1,41 +1,67 @@
 @import 'animation';
 @import 'common';
 
+$theme-light: #58a5f0;
+$theme-medium: #0277bd;
+$theme-dark: #004c8c;
+$theme-gray: #242f3e;
+$very-light-gray: #eeeeee;
+
 .rcw-widget-container {
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  margin: 0 20px 20px 0;
-  max-width: 370px;
-  position: fixed;
-  right: 0;
-  width: 90vw;
-  z-index: 9999;
+    font-weight: normal;
+    z-index: 100;
 }
 
-.rcw-full-screen {
-  @include widget-container-fs;
+.rcw-conversation-container > .rcw-header {
+    background-color: $theme-dark;
+}
+
+.quick-button {
+    border: 1px solid $theme-dark;
+}
+
+.rcw-message > .rcw-client {
+    background-color: white;
+    color: black;
+}
+
+.rcw-message > .rcw-client > .rcw-message-text{
+    background-color: $theme-medium;
+    color: $very-light-gray;
+}
+
+.rcw-message > .rcw-response {
+    background-color: white;
+    color: black;
+}
+
+.rcw-message > .rcw-response > .rcw-message-text{
+    background-color: $very-light-gray;
+    color: black;
+}
+
+
+.rcw-launcher {
+    background-color: $theme-dark;
+}
+
+.rcw-send-icon {
+    filter: invert(1)
 }
 
 @media only screen and (max-width: 800px) {
-  .rcw-widget-container {
-      position: absolute;
-      top: 100px;
-  }
-  .rcw-conversation-container .rcw-title {
-      padding: 15px 0 15px;
-  }
+    .rcw-widget-container {
+        height: fit-content;
+    }
+    .rcw-conversation-container .rcw-title {
+        padding: 15px 0 15px;
+    }
 
-  .rcw-conversation-container{
-      height: 0%;
-  }
+    .rcw-conversation-container{
+        height: 0%;
+    }
 
-  .rcw-conversation-container.active{
-      height: 100vh;
-      height: calc(100vh - 100px);
-  }
-}
-
-.rcw-previewer .rcw-message-img {
-  cursor: pointer;
+    .rcw-conversation-container.active{
+        height: 88vh;
+    }
 }
